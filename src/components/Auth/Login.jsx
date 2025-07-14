@@ -6,7 +6,6 @@ const Login = ({handleLogin}) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("email: ", email ," password: ", password);
     handleLogin(email, password)
     setEmail('');
     setPassword('');
@@ -14,7 +13,7 @@ const Login = ({handleLogin}) => {
 
   return (
     <div className="h-screen w-full flex items-center justify-center">
-      <div className="border-emerald-600 w-2/6 py-10  rounded-xl border-2 flex flex-col items-center justify-center">
+      <div className="border-emerald-600 w-[25rem] py-10  rounded-xl border-2 flex flex-col items-center justify-center">
         <form onSubmit={submitHandler} className="flex flex-col">
           <input
             value={email}
