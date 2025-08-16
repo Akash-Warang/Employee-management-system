@@ -1,5 +1,3 @@
-import { data } from "autoprefixer";
-
 const employees = [
     {
         id: 1,
