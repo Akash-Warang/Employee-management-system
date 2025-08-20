@@ -5,12 +5,25 @@ import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
 import { getLocalStorage, setLocalStorage } from "./utils/localStorage";
 import { AuthContext } from "./context/AuthProvider";
+import { data } from "autoprefixer";
 
 const App = () => {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
 
   const authData = useContext(AuthContext);
+
+  useEffect(() => {
+    
+    const loggedInUser = getLocalStorage('loggedInUser')
+
+    if(loggedInUser){
+      const userData = JSON(loggedInUser)
+      setUser(userData.role)
+      setLoggedInUserData(userData.data)
+    }
+  }, [])
+  
 
   const handleLogin = (email, password) => {
     console.log("1");
@@ -30,9 +43,9 @@ const App = () => {
       );
 
       if (employee) {
-        setUser("employee");
+        setUser('employee');
         setLoggedInUserData(employee);
-        setLocalStorage("loggedInUser", JSON.stringify("employee"));
+        localStorage.setItem('loggedInUser', JSON.stringify({role:'employee', data:employee}));
         console.log(loggedInUserData);
       } else {
         console.log("4");

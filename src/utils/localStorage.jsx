@@ -396,6 +396,7 @@ const admins = [
 ]
 
 export const setLocalStorage = () => {
+    // localStorage.clear()
     localStorage.setItem('employees', JSON.stringify(employees));
     localStorage.setItem('admins', JSON.stringify(admins));
 }
