@@ -12,16 +12,16 @@ const TaskListSwipe = ({data}) => {
     >
      {data.tasks.map((el,i)=>{
         if(el.active){
-          return <AcceptTask key={i}/>
+          return <AcceptTask key={i} data={el}/>
         }
         if(el.NewTask){
-          return <NewTask key={i}/>
+          return <NewTask key={i} data={el}/>
         }
         if(el.completed){
-          return <CompleteTask key={i}/>
+          return <CompleteTask key={i} data={el}/>
         }
         if(el.failed){
-          return <FailedTask key={i}/>
+          return <FailedTask key={i} data={el}/>
         }
      })}
     </div>

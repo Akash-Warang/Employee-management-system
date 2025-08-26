@@ -1,6 +1,14 @@
 import React from 'react'
+import useContext from 'react'
+
+import { AuthContext } from '../../context/AuthProvider'
 
 const AllAssignedTasks = () => {
+
+    const authData = useContext(AuthContext);
+
+    console.log(authData);
+
   return (
     <div id="TaskListSwipe" className='bg-[#1c1c1c] p-5 mt-7 rounded h-52 overflow-auto'>
         <div className='bg-pink-600 flex justify-between px-4 py-2 rounded mb-2'>
